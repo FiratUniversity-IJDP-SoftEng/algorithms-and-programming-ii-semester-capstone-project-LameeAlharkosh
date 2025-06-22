@@ -18,6 +18,7 @@ This project is an interactive web application that implements and visualizes [A
 
 ### Algorithm Steps
 
+
 1. [Step 1 with explanation]
 2. [Step 2 with explanation]
 3. [Step 3 with explanation]
