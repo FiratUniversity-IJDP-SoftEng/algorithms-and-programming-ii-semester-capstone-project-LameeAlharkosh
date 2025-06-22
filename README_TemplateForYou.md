@@ -86,7 +86,9 @@ function partition(arr, low, high):
    *Predefined test cases with columns: Description, Input, Expected, Actual, and Result.*
 
 5. **Complexity Analysis Section**
+   ---
    ![Complexity Analysis](./images/complexity_analysis.png)
+   ---
    *Big O time and space complexity details for the Quicksort implementation.*
 
 ---
