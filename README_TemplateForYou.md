@@ -69,15 +69,25 @@ function partition(arr, low, high):
 
 ## Screenshots
 
-Place your images in an `images/` folder:
+1. **Settings Panel**
+   ![Settings Panel](./images/settings_panel.png)
+   *Enter a comma-separated array, choose pivot strategy, and adjust animation speed.*
 
-```markdown
-![Settings Panel](images/settings_panel.png)
-![Main Visualization](images/main_visualization.png)
-![Step-by-Step Animation](images/animated_steps.png)
-![Complexity Analysis](images/complexity_analysis.png)
-![Test Cases Table](images/test_cases_table.png)
-```
+2. **Main Visualization**
+   ![Main Visualization](./images/main_visualization.png)
+   *Execution time, total steps recorded, and animated “Array State” bar chart.*
+
+3. **Step-by-Step Explanation**
+   ![Step-by-Step Explanation](./images/animated_steps.png)
+   *Textual log of each step showing intermediate array states and visited elements.*
+
+4. **Test Cases Demonstration Table**
+   ![Test Cases Table](./images/test_cases_table.png)
+   *Predefined test cases with columns: Description, Input, Expected, Actual, and Result.*
+
+5. **Complexity Analysis Section**
+   ![Complexity Analysis](./images/complexity_analysis.png)
+   *Big O time and space complexity details for the Quicksort implementation.*
 
 ---
 
