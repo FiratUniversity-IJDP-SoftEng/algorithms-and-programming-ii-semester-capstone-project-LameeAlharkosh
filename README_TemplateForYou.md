@@ -70,22 +70,30 @@ function partition(arr, low, high):
 ## Screenshots
 
 1. **Settings Panel**
+2. ---
    ![Settings Panel](./images/settings_panel.png)
+   ---
    *Enter a comma-separated array, choose pivot strategy, and adjust animation speed.*
 
-2. **Main Visualization**
+4. **Main Visualization**
+5. ---
    ![Main Visualization](./images/main_visualization.png)
+   ---
    *Execution time, total steps recorded, and animated “Array State” bar chart.*
 
-3. **Step-by-Step Explanation**
+6. **Step-by-Step Explanation**
+7. ---
    ![Step-by-Step Explanation](./images/animated_steps.png)
+   ---
    *Textual log of each step showing intermediate array states and visited elements.*
-
-4. **Test Cases Demonstration Table**
+   
+8. **Test Cases Demonstration Table**
+   ---
    ![Test Cases Table](./images/test_cases_table.png)
+   ---
    *Predefined test cases with columns: Description, Input, Expected, Actual, and Result.*
 
-5. **Complexity Analysis Section**
+9. **Complexity Analysis Section**
    ---
    ![Complexity Analysis](./images/complexity_analysis.png)
    ---
