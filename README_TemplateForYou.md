@@ -1,189 +1,156 @@
-# [Your Algorithm Name] - Interactive Visualization
+# Quicksort - Interactive Visualization
 
-## Project Overview
-
-This project is an interactive web application that implements and visualizes [Algorithm Name], developed as part of the Algorithms and Programming II course at Fırat University, Software Engineering Department.
-
-## Algorithm Description
-
-[Provide a comprehensive explanation of your algorithm here. Include the following elements:]
-
-### Problem Definition
-
-[Clearly define the problem that the algorithm solves]
-
-### Mathematical Background
-
-[Explain any mathematical concepts, formulas, or notation relevant to understanding the algorithm]
-
-### Algorithm Steps
-
-
-1. [Step 1 with explanation]
-2. [Step 2 with explanation]
-3. [Step 3 with explanation]
-...
-
-### Pseudocode
-
-```
-[Include pseudocode representation of your algorithm]
-```
-
-## Complexity Analysis
-
-### Time Complexity
-
-- **Best Case:** O(...) - [Explanation]
-- **Average Case:** O(...) - [Explanation]
-- **Worst Case:** O(...) - [Explanation]
-
-### Space Complexity
-
-- O(...) - [Explanation]
-
-## Features
-
-- [Feature 1]
-- [Feature 2]
-- [Feature 3]
-...
-
-## Screenshots
-
-![Main Interface](docs/screenshots/main_interface.png)
-*Caption describing the main interface*
-
-![Algorithm in Action](docs/screenshots/algorithm_demo.png)
-*Caption describing the algorithm in action*
-
-## Installation
-
-### Prerequisites
-
-- Python 3.8 or higher
-- Git
-
-### Setup Instructions
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/your-repository.git
-   cd your-repository
-   ```
-
-2. Create a virtual environment:
-   ```bash
-   # On Windows
-   python -m venv venv
-   venv\Scripts\activate
-
-   # On macOS/Linux
-   python3 -m venv venv
-   source venv/bin/activate
-   ```
-
-3. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-4. Run the application:
-   ```bash
-   streamlit run app.py
-   ```
-
-## Usage Guide
-
-1. [Step 1 of using the application]
-2. [Step 2 of using the application]
-3. [Step 3 of using the application]
-...
-
-### Example Inputs
-
-- [Example 1 with expected output]
-- [Example 2 with expected output]
-- [Example 3 with expected output]
-
-## Implementation Details
-
-### Key Components
-
-- `algorithm.py`: Contains the core algorithm implementation
-- `app.py`: Main Streamlit application
-- `utils.py`: Helper functions for data processing
-- `visualizer.py`: Functions for visualization
-
-### Code Highlights
-
-```python
-# Include a few key code snippets that demonstrate the most important parts of your implementation
-def key_function(parameter):
-    """
-    Docstring explaining what this function does
-    """
-    # Implementation with comments explaining the logic
-    result = process(parameter)
-    return result
-```
-
-## Testing
-
-This project includes a test suite to verify the correctness of the algorithm implementation:
-
-```bash
-python -m unittest test_algorithm.py
-```
-
-### Test Cases
-
-- [Test case 1 description]
-- [Test case 2 description]
-- [Test case 3 description]
-
-## Live Demo
-
-A live demo of this application is available at: [Insert Streamlit Cloud URL here]
-
-## Limitations and Future Improvements
-
-### Current Limitations
-
-- [Limitation 1]
-- [Limitation 2]
-- [Limitation 3]
-
-### Planned Improvements
-
-- [Improvement 1]
-- [Improvement 2]
-- [Improvement 3]
-
-## References and Resources
-
-### Academic References
-
-1. [Reference 1]
-2. [Reference 2]
-3. [Reference 3]
-
-### Online Resources
-
-- [Resource 1]
-- [Resource 2]
-- [Resource 3]
-
-## Author
-
-- **Name:** [Your Name]
-- **Student ID:** [Your Student ID]
-- **GitHub:** [Your GitHub Username]
-
-## Acknowledgements
-
-I would like to thank Assoc. Prof. Ferhat UÇAR for guidance throughout this project, and [any other acknowledgements].
+Welcome to the **Quicksort** interactive visualization project—a Streamlit web application built for the Algorithms and Programming II course at Fırat University.
 
 ---
 
-*This project was developed as part of the Algorithms and Programming II course at Fırat University, Technology Faculty, Software Engineering Department.*
+## Project Overview
+
+This application allows users to **step through** each comparison, swap, and recursive partition of the Quicksort algorithm in real time, making the divide-and-conquer process transparent and educational.
+
+---
+
+## Algorithm Description
+
+### Problem Definition
+
+Sort an input list of numerical values into ascending order efficiently.
+
+### Mathematical Background
+
+Quicksort operates by picking a **pivot** element, partitioning the list into elements less than the pivot and those greater than or equal, then **recursively** sorting each partition.
+
+### Algorithm Steps
+
+1. **Select Pivot:** Choose pivot (first element, random element, or median-of-three).
+2. **Partition:** Reorder elements so smaller ones come before the pivot and larger ones after.
+3. **Recursive Calls:** Apply Quicksort to left and right sublists around the pivot.
+4. **In-Place Merge:** No merge step needed since sorting is performed in-place.
+
+### Pseudocode
+
+```plaintext
+function quicksort(arr, low, high):
+    if low < high:
+        p = partition(arr, low, high)
+        quicksort(arr, low, p - 1)
+        quicksort(arr, p + 1, high)
+
+function partition(arr, low, high):
+    pivot = arr[high]
+    i = low - 1
+    for j from low to high - 1:
+        if arr[j] < pivot:
+            i = i + 1
+            swap(arr[i], arr[j])
+    swap(arr[i + 1], arr[high])
+    return i + 1
+```
+
+---
+
+## Complexity Analysis
+
+* **Best Case Time:** O(n log n) — perfectly balanced partitions
+* **Average Case Time:** O(n log n) — random pivots yield balanced splits on average
+* **Worst Case Time:** O(n²) — highly unbalanced partitions (e.g., sorted input with poor pivot choice)
+* **Space Complexity:** O(log n) — recursion stack for balanced partitions (up to O(n) in worst case)
+
+---
+
+## Features
+
+* **Pivot Strategy:** First element, Random, Median-of-three
+* **Step-By-Step Animation:** Adjustable speed slider
+* **Performance Metrics:** Execution time, swap & comparison count
+* **Test Cases:** Predefined scenarios (empty, single element, duplicates, reverse-sorted)
+
+---
+
+## Screenshots
+
+Place your images in an `images/` folder:
+
+```markdown
+![Settings Panel](images/settings_panel.png)
+![Main Visualization](images/main_visualization.png)
+![Step-by-Step Animation](images/animated_steps.png)
+![Complexity Analysis](images/complexity_analysis.png)
+![Test Cases Table](images/test_cases_table.png)
+```
+
+---
+
+## Installation
+
+```bash
+git clone https://github.com/your-username/your-repo.git
+cd your-repo
+pip install -r requirements.txt
+streamlit run app.py
+```
+
+---
+
+## Usage Guide
+
+1. Enter or generate an array in the **Settings** sidebar.
+2. Select pivot strategy and animation speed.
+3. Click **Run Quicksort** to visualize sorting.
+4. Use step controls to review each recursive call.
+
+### Example Inputs
+
+* `[3, 6, 1, 8, 4]` → `[1, 3, 4, 6, 8]`
+* `[]` → `[]`
+* `[7, 7, 7, 7]` → `[7, 7, 7, 7]`
+
+---
+
+## Implementation Details
+
+* **algorithm.py:** Core Quicksort & partition functions with step logging
+* **app.py:** Streamlit interface & animation logic
+* **utils.py:** Matplotlib defaults for consistent visuals
+
+---
+
+## Testing
+
+Run:
+
+```bash
+pytest test_algorithm.py
+```
+
+---
+
+## Live Demo
+
+[Streamlit Cloud Deployment](https://share.streamlit.io/your-username/your-repo)
+
+---
+
+## Limitations & Future Improvements
+
+* **Current Limitations:** May slow down for very large arrays (>1000 elements)
+* **Future Improvements:** Introduce hybrid Introsort, parallel execution, theme customization
+
+---
+
+## References & Resources
+
+* Cormen et al., *Introduction to Algorithms*, 3rd Ed.
+* Visualgo.net Quicksort Tutorial
+
+---
+
+## Author
+
+**Lami Alharkuş** | Student ID: 220543605 | GitHub: LameeALharkosh
+
+---
+
+## Acknowledgements
+
+Thanks to Assoc. Prof. Ferhat UÇAR for guidance and support.
