@@ -1,31 +1,35 @@
 # Quicksort - Interactive Visualization
 
-Welcome to the **Quicksort** interactive visualization project—a Streamlit web application built for the Algorithms and Programming II course at Fırat University.
+Welcome to the **Quicksort** interactive visualization project—an educational Streamlit web application developed for the Algorithms and Programming II course at Fırat University. This tool makes the divide-and-conquer strategy of Quicksort transparent by animating each comparison, swap, and recursive partition in real time.
 
 ---
 
-## Project Overview
+##  Project Overview
 
-This application allows users to **step through** each comparison, swap, and recursive partition of the Quicksort algorithm in real time, making the divide-and-conquer process transparent and educational.
+This application allows users to:
+
+* **Visualize** each step of the Quicksort algorithm on an input array.
+* **Choose** different pivot selection strategies: First Element, Last Element, Median-of-Three, or Random.
+* **Adjust** animation speed for step-by-step understanding.
+* **Measure** execution time and observe how pivot choice affects performance.
+* **Run** predefined test cases to verify correctness across scenarios.
 
 ---
 
-## Algorithm Description
+##  Algorithm Description
 
 ### Problem Definition
 
-Sort an input list of numerical values into ascending order efficiently.
+Efficiently sort a list of numerical values into ascending order using the Quicksort algorithm.
 
 ### Mathematical Background
 
-Quicksort operates by picking a **pivot** element, partitioning the list into elements less than the pivot and those greater than or equal, then **recursively** sorting each partition.
+Quicksort is a divide-and-conquer algorithm that:
 
-### Algorithm Steps
-
-1. **Select Pivot:** Choose pivot (first element, random element, or median-of-three).
-2. **Partition:** Reorder elements so smaller ones come before the pivot and larger ones after.
-3. **Recursive Calls:** Apply Quicksort to left and right sublists around the pivot.
-4. **In-Place Merge:** No merge step needed since sorting is performed in-place.
+1. **Selects a pivot** element from the array.
+2. **Partitions** the remaining elements into those less than or equal to the pivot and those greater.
+3. **Recursively** applies the same process to the subarrays.
+4. **Combines** results in-place, avoiding the need for additional merge steps.
 
 ### Pseudocode
 
@@ -38,70 +42,66 @@ function quicksort(arr, low, high):
 
 function partition(arr, low, high):
     pivot = arr[high]
-    i = low - 1
+    i = low
     for j from low to high - 1:
-        if arr[j] < pivot:
-            i = i + 1
+        if arr[j] <= pivot:
             swap(arr[i], arr[j])
-    swap(arr[i + 1], arr[high])
-    return i + 1
+            i = i + 1
+    swap(arr[i], arr[high])
+    return i
 ```
 
 ---
 
-## Complexity Analysis
+##  Complexity Analysis
 
-* **Best Case Time:** O(n log n) — perfectly balanced partitions
-* **Average Case Time:** O(n log n) — random pivots yield balanced splits on average
-* **Worst Case Time:** O(n²) — highly unbalanced partitions (e.g., sorted input with poor pivot choice)
-* **Space Complexity:** O(log n) — recursion stack for balanced partitions (up to O(n) in worst case)
-
----
-
-## Features
-
-* **Pivot Strategy:** First element, Random, Median-of-three
-* **Step-By-Step Animation:** Adjustable speed slider
-* **Performance Metrics:** Execution time, swap & comparison count
-* **Test Cases:** Predefined scenarios (empty, single element, duplicates, reverse-sorted)
+* **Best Case:** O(n log n) — pivot splits arrays evenly.
+* **Average Case:** O(n log n) — random pivots yield balanced partitions on average.
+* **Worst Case:** O(n²) — highly unbalanced partitions (e.g., sorted input with poor pivot choice).
+* **Space Complexity:** O(log n) auxiliary (average recursion stack); O(n) in worst case.
 
 ---
 
-## Screenshots
+##  Features
+
+* **Pivot Strategies:** First Element, Last Element, Median-of-Three, Random.
+* **Step-By-Step Animation:** Adjustable speed slider for pause-and-examine.
+* **Performance Metrics:** Execution time and total recorded steps.
+* **Test Cases Demonstration:** Verify correctness on empty arrays, duplicates, reverse-sorted arrays, and more.
+
+---
+
+##  Screenshots
 
 1. **Settings Panel**
 2. ---
    ![Settings Panel](./images/settings_panel.png)
    ---
-   *Enter a comma-separated array, choose pivot strategy, and adjust animation speed.*
+   *Enter an array, select pivot strategy, and adjust animation speed.*
 
 4. **Main Visualization**
 5. ---
    ![Main Visualization](./images/main_visualization.png)
    ---
-   *Execution time, total steps recorded, and animated “Array State” bar chart.*
+   *Animated bar chart showing the current array state and execution summary.*
 
 6. **Step-by-Step Explanation**
 7. ---
    ![Step-by-Step Explanation](./images/animated_steps.png)
    ---
-   *Textual log of each step showing intermediate array states and visited elements.*
-   
-8. **Test Cases Demonstration Table**
-   ---
+   *Detailed view of each partition and swap.*
+
+9. **Test Cases Table**
+10. ---
    ![Test Cases Table](./images/test_cases_table.png)
    ---
-   *Predefined test cases with columns: Description, Input, Expected, Actual, and Result.*
-
-9. **Complexity Analysis Section**
-   ---
-   ![Complexity Analysis](./images/complexity_analysis.png)
-   ---
-   *Big O time and space complexity details for the Quicksort implementation.*
+   *Predefined scenarios with pass/fail results.*
 
 ---
 
-## Installation
+##  Installation
+
+Ensure you have Python 3.8+ installed. Then:
 
 ```bash
 git clone https://github.com/your-username/your-repo.git
@@ -112,65 +112,72 @@ streamlit run app.py
 
 ---
 
-## Usage Guide
+##  Usage Guide
 
-1. Enter or generate an array in the **Settings** sidebar.
-2. Select pivot strategy and animation speed.
-3. Click **Run Quicksort** to visualize sorting.
-4. Use step controls to review each recursive call.
-
-### Example Inputs
-
-* `[3, 6, 1, 8, 4]` → `[1, 3, 4, 6, 8]`
-* `[]` → `[]`
-* `[7, 7, 7, 7]` → `[7, 7, 7, 7]`
+1. **Input Array:** Enter a comma-separated list of integers in the sidebar.
+2. **Select Pivot:** Choose your pivot strategy.
+3. **Set Speed:** Move the slider to control animation delay per step.
+4. **Run:** Click **Run Quicksort** to start visualization.
+5. **Explore:** Expand the step-by-step log or watch the live animation.
 
 ---
 
-## Implementation Details
+##  Implementation Details
 
-* **algorithm.py:** Core Quicksort & partition functions with step logging
-* **app.py:** Streamlit interface & animation logic
-* **utils.py:** Matplotlib defaults for consistent visuals
+* **algorithm.py:** Core Quicksort implementation with in-place partitioning and step logging.
+* **app.py:** Streamlit interface, user inputs, and animation loop.
+* **utils.py:** Matplotlib helper to render bar charts for each array state.
+* **test-algorithm.py:** `unittest` suite covering sorted, reverse, random, and duplicate-element cases.
 
 ---
 
-## Testing
+##  Testing
 
-Run:
+Run the automated tests with:
 
 ```bash
-pytest test_algorithm.py
+pytest test-algorithm.py
 ```
 
 ---
 
-## Live Demo
+##  Live Demo
 
-[https://quicksort---interactive-visualization-w5ftb2h2ruurjwhtd5beox.streamlit.app/](https://quicksort---interactive-visualization-w5ftb2h2ruurjwhtd5beox.streamlit.app/)
-
----
-
-## Limitations & Future Improvements
-
-* **Current Limitations:** May slow down for very large arrays (>1000 elements)
-* **Future Improvements:** Introduce hybrid Introsort, parallel execution, theme customization
+Check out the live demo:
+[Quicksort Visualization on Streamlit](https://quicksort---interactive-visualization-w5ftb2h2ruurjwhtd5beox.streamlit.app/)
 
 ---
 
-## References & Resources
+##  Limitations & Future Improvements
 
-* Cormen et al., *Introduction to Algorithms*, 3rd Ed.
-* Visualgo.net Quicksort Tutorial
+* **Current Limitations:** May slow for very large arrays (>1000 elements).
+* **Future Improvements:**
 
----
-
-## Author
-
-**Lami Alharkuş** | Student ID: 220543605 | GitHub: LameeALharkosh
+  * Integrate hybrid Introsort (switch to heapsort on deep recursion).
+  * Parallelize partitioning for multi-core performance.
+  * Add dark/light theme options and customizable color palettes.
 
 ---
 
-## Acknowledgements
+##  References & Resources
 
-Thanks to Assoc. Prof. Ferhat UÇAR for guidance and support.
+* Cormen, Leiserson, Rivest, Stein — *Introduction to Algorithms*, 3rd Ed.
+* [VisuAlgo Quicksort Tutorial](https://visualgo.net/en/sorting#qsort)
+
+---
+
+##  Author
+
+**Lami Alharkuş** | Student ID: 220543605 | GitHub: [LameeALharkosh](https://github.com/LameeALharkosh)
+
+---
+
+##  License
+
+This project is licensed under the MIT License. See [LICENSE](./LICENSE) for details.
+
+---
+
+##  Acknowledgements
+
+Special thanks to Assoc. Prof. Ferhat UÇAR for guidance and feedback during development.
