@@ -147,7 +147,7 @@ pytest test_algorithm.py
 
 ## Live Demo
 
-[Streamlit Cloud Deployment](https://quicksort---interactive-visualization-w5ftb2h2ruurjwhtd5beox.streamlit.app/)
+[https://quicksort---interactive-visualization-w5ftb2h2ruurjwhtd5beox.streamlit.app/](https://quicksort---interactive-visualization-w5ftb2h2ruurjwhtd5beox.streamlit.app/)
 
 ---
 
